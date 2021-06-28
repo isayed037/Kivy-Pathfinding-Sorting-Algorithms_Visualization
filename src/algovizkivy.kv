@@ -1,0 +1,179 @@
+#:kivy 2.0.0
+
+<MenuScreen>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            source: "images/main_background.jpg"
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'center'
+        padding: [0, 0, self.width * .10, 0]
+        GridLayout:
+            rows: 3
+            size_hint: .5,.5 
+            Button:
+                text: 'Pathfinding Algorithms'
+                on_press: 
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'path'
+                background_color: (0,1,1,.9)
+            Button:
+                text: 'Sorting Algorithms'
+                on_press: 
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'sort'
+                background_color: (1,1,0,.8)
+            Button:
+                text: 'Settings'
+                on_press: 
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'settings'
+                background_color: (1,0,1,.6)
+            
+
+<SettingsScreen>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            source: "images/main_background.jpg"
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'center'
+        padding: [10, 0, 0, 0]
+        GridLayout:
+            rows: 10
+            size_hint: .8, .8 
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    text: 'Empty color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.empty_color
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: empty_input
+                    hint_text: "Enter new empty color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    text: 'Barrier and line color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.barrier_color
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: barrier_input
+                    hint_text: "Enter new barrier color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    text: 'Edge color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.edge_color
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: edge_input
+                    hint_text: "Enter new edge color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    text: 'Start and current line color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.start_color
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: start_input
+                    hint_text: "Enter new start color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    text: 'End and line check color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.end_color
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: end_input
+                    hint_text: "Enter new end color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    text: 'Neighbor open and line swapped color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.neighbor_open
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: neighbor_open_input
+                    hint_text: "Enter new neighbor open color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    text: 'Neighbor closed color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.neighbor_closed
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: neighbor_closed_input
+                    hint_text: "Enter new neighbor closed color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Label:
+                    id: solution_path_button
+                    text: 'Solution path color:'
+                    canvas.before:
+                        Color:
+                            rgba: root.solution_path
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: solution_path_input
+                    hint_text: "Enter new solution path color. Format is r,g,b,a where rgba are numbers between 0 to 1"
+            GridLayout:
+                cols: 2
+                size_hint: .5, .5
+                Button:
+                    text: 'Reset'
+                    on_press: root.reset_color()
+                    background_color: (.5,0,0,.8)
+                Button:
+                    text: 'Update (Button color will change)'
+                    on_release: root.update_color()
+                    background_color: (0,1,0,1)
+            GridLayout:
+                cols: 1
+                size_hint: .5, .5
+                Button:
+                    text: 'Back to menu'
+                    on_press: 
+                        root.manager.transition.direction = 'left'
+                        root.manager.current = 'menu'
+                    background_color: (1,0,1,1)
