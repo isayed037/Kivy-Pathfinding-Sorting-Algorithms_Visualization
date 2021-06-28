@@ -34,7 +34,7 @@ class Sort_layout(GridLayout):
     #* Initializes the grid
     def initialize_grid(self):
         if self.random:
-            self.array_length = [randint(1, self.cols-1) for _ in range(self.rows)]
+            self.array_length = [randint(2, self.cols-1) for _ in range(self.rows)]
         else:
             self.array_length = [2 for _ in range(self.rows)]
         

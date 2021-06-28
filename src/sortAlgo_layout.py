@@ -17,7 +17,7 @@ class SortAlgo_layout(GridLayout):
         self.top_setting.size_hint = (1, .1)
         self.add_widget(self.top_setting)
         
-        self.grid = Sort_layout(Node_widget, 50, 20)
+        self.grid = Sort_layout(Node_widget, 25, 25)
         self.grid.initialize_grid()
         self.add_widget(self.grid)
         

@@ -40,11 +40,11 @@ class DFS_algo():
     def algorithm(self, dt):
         self.current = self.open_set.pop()
         
-        if self.current == self.end:
-            #self.solution_clock = Clock.schedule_interval(self.solution, 1.0 / 30)
-            #self.running = False
-            self.has_solution = True
-            #self.algorithm_clock.cancel()
+        # if self.current == self.end:
+        #     self.solution_clock = Clock.schedule_interval(self.solution, 1.0 / 30)
+        #     self.running = False
+        #     self.has_solution = True
+        #     self.algorithm_clock.cancel()
         
         for neighbor in self.current.node_neighbors:        
             if neighbor not in self.came_from:
@@ -61,7 +61,7 @@ class DFS_algo():
         #if self.open_set.empty() and self.current != self.end:
         if len(self.open_set) == 0 and self.current != self.end:
             self.running = False
-            self.has_solution = False
+            #self.has_solution = False
             self.algorithm_clock.cancel()
         
         if self.auto == False:

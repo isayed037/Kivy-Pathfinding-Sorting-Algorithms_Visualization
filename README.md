@@ -10,6 +10,8 @@ The only requirement is kivy version 2.0.0
 Run `main.py` to run the application
 All file imports are in `main.py`, `pathfindingAlgo_layout.py`, `sortAlgo_layout.py`, and `algovizkivy.kv`
 
+![Video](./docs/Pathfinding_video.gif)
+
 ## Features
 
 - You can pick start and end node for pathfinding algorithms anywhere in the grid
@@ -50,3 +52,5 @@ I have implemented this algorithms so far:
 ### Contributions
 
 If you have any ideas or contributions, feel free to create a pull request.
+
+![Video](./docs/Sorting_video.gif)
